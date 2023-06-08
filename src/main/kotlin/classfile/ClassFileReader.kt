@@ -6,7 +6,7 @@ import classfile.attributes.Attributes
 import java.io.File
 import java.io.IOException
 
-class ClassFileReader(var path: String) {
+class ClassFileReader(path: String) {
     var file: File = File(path)
 
     var bytes = file.inputStream()
@@ -26,11 +26,8 @@ class ClassFileReader(var path: String) {
     var attributes: Attributes
 
     init {
-        var size: Long = file.length()
-        var head: Long = 0
-
         //Magic
-        var magic = ReadU4()
+        val magic = ReadU4()
         if (magic.toLong() != 0xCAFEBABE) {
             Warn(String.format("Detected an unusual magic of 0x%08X", magic))
         }
@@ -70,7 +67,7 @@ class ClassFileReader(var path: String) {
                     (buffer[3].toInt() and 0xff shl 24))
         } catch (e: IOException) {
             System.err.print("Exception for FileInputStream.readNBytes caught")
-            throw IOException(e);
+            throw IOException(e)
         }
     }
 
@@ -84,7 +81,7 @@ class ClassFileReader(var path: String) {
                     (buffer[1].toInt() and 0xff shl 8)).toShort()
         } catch (e: IOException) {
             System.err.print("Exception for FileInputStream.readNBytes caught")
-            throw IOException(e);
+            throw IOException(e)
         }
     }
 
@@ -97,7 +94,7 @@ class ClassFileReader(var path: String) {
             return buffer[0]
         } catch (e: IOException) {
             System.err.print("Exception for FileInputStream.readNBytes caught")
-            throw IOException(e);
+            throw IOException(e)
         }
     }
 }
