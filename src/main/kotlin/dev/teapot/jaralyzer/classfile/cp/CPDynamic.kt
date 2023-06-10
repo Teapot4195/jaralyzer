@@ -1,4 +1,4 @@
-package classfile.cp
+package dev.teapot.jaralyzer.classfile.cp
 
 class CPDynamic(b: ICPBase, n: ICPBase): ICPBase() {
     var bootstrap_method_attr: ICPBase = b

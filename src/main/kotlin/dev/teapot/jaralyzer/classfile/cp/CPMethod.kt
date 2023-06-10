@@ -1,4 +1,4 @@
-package classfile.cp
+package dev.teapot.jaralyzer.classfile.cp
 
 enum class CPMethodHandleKind(var kind: Byte) {
     getField(1),

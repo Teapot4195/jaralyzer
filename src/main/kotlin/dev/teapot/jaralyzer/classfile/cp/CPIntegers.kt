@@ -1,4 +1,4 @@
-package classfile.cp
+package dev.teapot.jaralyzer.classfile.cp
 
 class CPInt(d: Int): ICPBase() {
     var bytes: Int = d

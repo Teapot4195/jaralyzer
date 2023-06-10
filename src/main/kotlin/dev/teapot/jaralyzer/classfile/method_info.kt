@@ -1,6 +1,6 @@
-package classfile
+package dev.teapot.jaralyzer.classfile
 
-import classfile.attributes.Attributes
+import dev.teapot.jaralyzer.classfile.attributes.Attributes
 
 class method_info(reader: ClassFileReader) {
     var access_flags: Short

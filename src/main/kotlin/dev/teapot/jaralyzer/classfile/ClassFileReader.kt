@@ -1,8 +1,8 @@
-package classfile
+package dev.teapot.jaralyzer.classfile
 
-import Util.Info
-import Util.Warn
-import classfile.attributes.Attributes
+import dev.teapot.jaralyzer.Util.Info
+import dev.teapot.jaralyzer.Util.Warn
+import dev.teapot.jaralyzer.classfile.attributes.Attributes
 import java.io.File
 import java.io.IOException
 
@@ -47,10 +47,10 @@ class ClassFileReader(path: String) {
         interfaces = Array<Short>(interface_count){i -> ReadU2()}
 
         val field_count: Int = ReadU2().toInt()
-        fields = Array<field_info>(field_count){i -> field_info(this) }
+        fields = Array<field_info>(field_count){ i -> field_info(this) }
 
         val method_count: Int = ReadU2().toInt()
-        methods = Array<method_info>(method_count){i -> method_info(this)}
+        methods = Array<method_info>(method_count){ i -> method_info(this) }
 
         attributes = Attributes(this)
     }

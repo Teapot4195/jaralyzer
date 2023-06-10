@@ -1,6 +1,6 @@
-package classfile.attributes
+package dev.teapot.jaralyzer.classfile.attributes
 
-import classfile.ClassFileReader
+import dev.teapot.jaralyzer.classfile.ClassFileReader
 
 class ExceptionEntry(reader: ClassFileReader) {
     var start_pc: Short

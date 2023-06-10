@@ -1,8 +1,8 @@
-package classfile
+package dev.teapot.jaralyzer.classfile
 
-import Util.Warn
-import classfile.cp.CPMethodHandleKind
-import classfile.cp.*
+import dev.teapot.jaralyzer.Util.Warn
+import dev.teapot.jaralyzer.classfile.cp.CPMethodHandleKind
+import dev.teapot.jaralyzer.classfile.cp.*
 import java.lang.StringBuilder
 
 enum class ConstantPoolEntryType {
@@ -26,7 +26,7 @@ class ConstantPool(reader: ClassFileReader) {
     init {
         size = reader.ReadU2()
 
-        entries = Array<ConstantPoolEntry?>(size.toInt()) {i -> null}
+        entries = Array<ConstantPoolEntry?>(size.toInt()) { i -> null}
 
         var skip: Boolean = false
 

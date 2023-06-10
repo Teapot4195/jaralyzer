@@ -1,4 +1,4 @@
-package classfile.cp
+package dev.teapot.jaralyzer.classfile.cp
 
 class CPString(s: ICPBase) : ICPBase() {
     var string: ICPBase = s

@@ -1,4 +1,4 @@
-package classfile.cp
+package dev.teapot.jaralyzer.classfile.cp
 
 class CPFieldref(c: ICPBase, n: ICPBase): ICPBase() {
     var clazz: ICPBase = c

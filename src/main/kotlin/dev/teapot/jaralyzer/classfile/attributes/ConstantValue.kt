@@ -1,8 +1,8 @@
-package classfile.attributes
+package dev.teapot.jaralyzer.classfile.attributes
 
-import Util.Warn
-import classfile.ClassFileReader
-import classfile.cp.ICPBase
+import dev.teapot.jaralyzer.Util.Warn
+import dev.teapot.jaralyzer.classfile.ClassFileReader
+import dev.teapot.jaralyzer.classfile.cp.ICPBase
 
 class ConstantValue(reader: ClassFileReader): IAttributeBase {
     var constantvalue: ICPBase?
