@@ -1,7 +1,6 @@
-package classfile
+package dev.teapot.jaralyzer.classfile
 
-import classfile.attributes.Attributes
-import classfile.attributes.IAttributeBase
+import dev.teapot.jaralyzer.classfile.attributes.Attributes
 
 class field_info(reader: ClassFileReader) {
     var access_flags: Short
