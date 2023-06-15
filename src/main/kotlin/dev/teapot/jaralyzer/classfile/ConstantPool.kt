@@ -23,6 +23,15 @@ class ConstantPool(reader: ClassFileReader) {
         //TODO: Resolve CPRefs to point to the correct entry
     }
 
+    operator fun get(index: Short): ICPBase? {
+        val v = entries[index.toInt()]
+        if (v != null) {
+            return v.data
+        } else {
+            throw Exception("Data was not valid")
+        }
+    }
+
     init {
         size = reader.ReadU2()
 

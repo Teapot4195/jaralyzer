@@ -24,6 +24,7 @@ class Attributes(reader: ClassFileReader) {
                 "InnerClasses" -> InnerClasses(reader)
                 "EnclosingMethod" -> EnclosingMethod(reader)
                 "Synthetic" -> Synthetic()
+                "Signature" -> Signature(reader)
                 else -> {
                     reader.flags.add(Attributes_BadTag("Expected Valid Tag", "Got \"$name\" instead"))
                     for (y in 0 until len) {
