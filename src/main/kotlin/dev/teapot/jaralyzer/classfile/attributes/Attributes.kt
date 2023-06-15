@@ -1,5 +1,6 @@
 package dev.teapot.jaralyzer.classfile.attributes
 
+import dev.teapot.jaralyzer.Util.flags.attributes.Attributes_BadTag
 import dev.teapot.jaralyzer.classfile.ClassFileReader
 import dev.teapot.jaralyzer.classfile.cp.CPUTF8
 
@@ -19,7 +20,9 @@ class Attributes(reader: ClassFileReader) {
                 "ConstantValue" -> ConstantValue(reader)
                 "Code" -> Code(reader)
                 "StackMapTable" -> StackMapTable(reader)
+                "Exceptions" -> Exceptions(reader)
                 else -> {
+                    reader.flags.add(Attributes_BadTag("Expected Valid Tag", "Got \"$name\" instead"))
                     for (y in 0 until len) {
                         reader.ReadU1() //data
                     }

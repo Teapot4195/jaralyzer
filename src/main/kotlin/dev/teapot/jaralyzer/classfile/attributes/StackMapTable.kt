@@ -1,6 +1,6 @@
 package dev.teapot.jaralyzer.classfile.attributes
 
-import dev.teapot.jaralyzer.Util.flags.annotations.StackMapTable_BadVTITag
+import dev.teapot.jaralyzer.Util.flags.attributes.StackMapTable_BadVTITag
 import dev.teapot.jaralyzer.classfile.ClassFileReader
 import dev.teapot.jaralyzer.classfile.cp.CPRef
 import dev.teapot.jaralyzer.classfile.cp.ICPBase
