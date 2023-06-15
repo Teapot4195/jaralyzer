@@ -18,6 +18,7 @@ class Attributes(reader: ClassFileReader) {
             val attr: IAttributeBase? = when (name) {
                 "ConstantValue" -> ConstantValue(reader)
                 "Code" -> Code(reader)
+                "StackMapTable" -> StackMapTable(reader)
                 else -> {
                     for (y in 0 until len) {
                         reader.ReadU1() //data
