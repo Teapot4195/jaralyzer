@@ -1,5 +1,6 @@
 package dev.teapot.jaralyzer.classfile
 
+import dev.teapot.jaralyzer.Util.FlagManager
 import dev.teapot.jaralyzer.Util.Info
 import dev.teapot.jaralyzer.Util.Warn
 import dev.teapot.jaralyzer.classfile.attributes.Attributes
@@ -7,6 +8,8 @@ import java.io.File
 import java.io.IOException
 
 class ClassFileReader(path: String) {
+    var flags: FlagManager = FlagManager()
+
     var file: File = File(path)
 
     var bytes = file.inputStream()
