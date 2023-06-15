@@ -28,3 +28,6 @@ replay_pid*
 
 # intellij idea information
 .idea/
+
+# ignore build artifacts
+build/
