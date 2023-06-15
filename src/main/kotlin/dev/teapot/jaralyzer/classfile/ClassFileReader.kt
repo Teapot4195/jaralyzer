@@ -2,7 +2,6 @@ package dev.teapot.jaralyzer.classfile
 
 import dev.teapot.jaralyzer.Util.FlagManager
 import dev.teapot.jaralyzer.Util.Info
-import dev.teapot.jaralyzer.Util.Warn
 import dev.teapot.jaralyzer.Util.flags.classfile.ClassFile_BadMagic
 import dev.teapot.jaralyzer.classfile.attributes.Attributes
 import java.io.File
