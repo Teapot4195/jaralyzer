@@ -21,6 +21,7 @@ class Attributes(reader: ClassFileReader) {
                 "Code" -> Code(reader)
                 "StackMapTable" -> StackMapTable(reader)
                 "Exceptions" -> Exceptions(reader)
+                "InnerClasses" -> InnerClasses(reader)
                 else -> {
                     reader.flags.add(Attributes_BadTag("Expected Valid Tag", "Got \"$name\" instead"))
                     for (y in 0 until len) {
