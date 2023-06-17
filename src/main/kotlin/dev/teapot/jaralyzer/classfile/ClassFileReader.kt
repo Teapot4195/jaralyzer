@@ -2,17 +2,17 @@ package dev.teapot.jaralyzer.classfile
 
 import dev.teapot.jaralyzer.Util.FlagManager
 import dev.teapot.jaralyzer.Util.Info
-import dev.teapot.jaralyzer.Util.flags.classfile.ClassFile_BadMagic
 import dev.teapot.jaralyzer.classfile.attributes.Attributes
-import java.io.File
+import dev.teapot.jaralyzer.classfile.attributes.Exceptions
 import java.io.IOException
+import java.io.InputStream
 
-class ClassFileReader(path: String) {
+class IException(): Exception() {}
+
+class ClassFileReader(f: InputStream) {
     var flags: FlagManager = FlagManager()
 
-    var file: File = File(path)
-
-    var bytes = file.inputStream()
+    var bytes = f
 
     var minor_version: Short
     var major_version: Short
@@ -32,7 +32,7 @@ class ClassFileReader(path: String) {
         //Magic
         val magic = ReadU4()
         if (magic.toLong() != 0xCAFEBABE) {
-            flags.add(ClassFile_BadMagic("Invalid Magic", String.format("Detected an unusual magic of 0x%08X", magic)))
+            throw IException()
         }
 
         minor_version = ReadU2()
@@ -47,13 +47,13 @@ class ClassFileReader(path: String) {
         super_class = ReadU2()
 
         val interface_count: Int = ReadU2().toInt()
-        interfaces = Array<Short>(interface_count){i -> ReadU2()}
+        interfaces = Array<Short>(interface_count){ReadU2()}
 
         val field_count: Int = ReadU2().toInt()
-        fields = Array<field_info>(field_count){ i -> field_info(this) }
+        fields = Array<field_info>(field_count){field_info(this)}
 
         val method_count: Int = ReadU2().toInt()
-        methods = Array<method_info>(method_count){ i -> method_info(this) }
+        methods = Array<method_info>(method_count){method_info(this)}
 
         attributes = Attributes(this)
     }

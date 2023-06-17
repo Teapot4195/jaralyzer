@@ -11,7 +11,7 @@ class Attributes(reader: ClassFileReader) {
     init {
         //TODO: Make this not a dummy
         val count = reader.ReadU2().toInt()
-        attributes = Array<IAttributeBase?>(count){ i -> null}
+        attributes = Array<IAttributeBase?>(count){null}
         for (i in 0 until count) {
             val name = (reader.cp.entries[reader.ReadU2().toInt()]?.data as CPUTF8).bytes
             val len = reader.ReadU4() //len

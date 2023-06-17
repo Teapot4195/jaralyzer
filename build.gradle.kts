@@ -3,7 +3,7 @@ plugins {
     application
 }
 
-group = "org.teapot"
+group = "dev.teapot"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -11,6 +11,8 @@ repositories {
 }
 
 dependencies {
+    implementation("software.coley", "lljzip", "1.6.1")
+    implementation("software.coley:lljzip:1.6.1")
     testImplementation(kotlin("test"))
 }
 

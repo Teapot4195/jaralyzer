@@ -118,6 +118,8 @@ class StackMapTable(reader: ClassFileReader): IAttributeBase {
                 }
                 else -> {null}
             }
+
+            entries[i] = frame
         }
     }
 }

@@ -35,7 +35,7 @@ class ConstantPool(reader: ClassFileReader) {
     init {
         size = reader.ReadU2()
 
-        entries = Array<ConstantPoolEntry?>(size.toInt()) { i -> null}
+        entries = Array<ConstantPoolEntry?>(size.toInt()) {null}
 
         var skip: Boolean = false
 

@@ -27,9 +27,9 @@ class Code(reader: ClassFileReader): IAttributeBase {
         max_stack = reader.ReadU2()
         max_locals = reader.ReadU2()
         val code_length = reader.ReadU4()
-        code = Array<Byte>(code_length){i -> reader.ReadU1()}
+        code = Array<Byte>(code_length){reader.ReadU1()}
         val exception_table_length = reader.ReadU2()
-        exception_table = Array<ExceptionEntry>(exception_table_length.toInt()){ i -> ExceptionEntry(reader) }
+        exception_table = Array<ExceptionEntry>(exception_table_length.toInt()){ExceptionEntry(reader)}
         attributes = Attributes(reader)
     }
 }
